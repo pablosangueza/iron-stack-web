@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://pablosangueza.github.io',
-  base: '/iron-stack-web/',
+  base: '//',
   output: 'static',
   integrations: [tailwind(), sitemap()]
 });
