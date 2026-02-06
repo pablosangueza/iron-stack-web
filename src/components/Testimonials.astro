@@ -1,0 +1,25 @@
+---
+const testimonials = [
+  {
+    quote: 'IronStack helped us unify training operations and reporting into one secure system. Our instructors save hours weekly.',
+    author: 'Director of Training, Regional Academy'
+  },
+  {
+    quote: 'The platform design was tactical, practical, and fast to deploy. We now have clear workflows and accountability.',
+    author: 'Operations Lead, Security Services Group'
+  },
+  {
+    quote: 'From intake to certification tracking, everything is now auditable and role-based.',
+    author: 'Program Manager, Defense-Adjacent Contractor'
+  }
+];
+---
+
+<div class="grid gap-6 md:grid-cols-3">
+  {testimonials.map((item) => (
+    <blockquote class="card">
+      <p class="text-sm leading-relaxed">“{item.quote}”</p>
+      <footer class="mt-4 border-t border-white/10 pt-4 text-xs uppercase tracking-wide text-white/80">{item.author}</footer>
+    </blockquote>
+  ))}
+</div>

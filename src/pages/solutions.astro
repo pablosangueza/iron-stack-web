@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+
+const solutions = [
+  {
+    title: 'Tactical Website & Lead Platform',
+    audience: 'For academies, training providers, and security organizations that need stronger digital intake and lead management.',
+    included: ['Conversion-focused website', 'Lead capture workflows', 'CRM/email integrations', 'Admin content tools'],
+    timeline: '4-8 weeks'
+  },
+  {
+    title: 'Operations & Scheduling System',
+    audience: 'For teams coordinating instructors, facilities, calendars, and operational readiness tasks.',
+    included: ['Resource scheduling', 'Instructor assignment logic', 'Status dashboards', 'Automated notifications'],
+    timeline: '8-14 weeks'
+  },
+  {
+    title: 'Training / Academy Management Platform',
+    audience: 'For organizations delivering recurring programs, certifications, and multi-level curricula.',
+    included: ['Student lifecycle workflows', 'Certification tracking', 'Role-based access', 'Progress and performance reporting'],
+    timeline: '10-18 weeks'
+  },
+  {
+    title: 'Custom Tactical Software',
+    audience: 'For specialized mission support, internal tooling, and bespoke operating environments.',
+    included: ['Discovery + architecture', 'Custom business logic', 'System integrations', 'Security hardening and support'],
+    timeline: 'Varies by scope (typically 6-20+ weeks)'
+  }
+];
+---
+
+<BaseLayout
+  title="Solutions | IronStack Tactical Software Solutions"
+  description="Purpose-built tactical software solutions for lead generation, scheduling, training management, and custom operations support."
+>
+  <Section title="Solutions" subtitle="Pre-scoped engagements aligned to tactical organizations and defense-adjacent teams.">
+    <div class="grid gap-6 lg:grid-cols-2">
+      {solutions.map((solution) => (
+        <Card title={solution.title}>
+          <p class="mt-3 text-sm"><span class="font-semibold text-white">Who it's for:</span> {solution.audience}</p>
+          <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-accent">What's included</p>
+          <ul class="mt-2 list-disc space-y-1 pl-5 text-sm">
+            {solution.included.map((entry) => <li>{entry}</li>)}
+          </ul>
+          <p class="mt-4 text-sm"><span class="font-semibold text-white">Estimated timeline:</span> {solution.timeline}</p>
+          <a href="/contact" class="mt-5 inline-block rounded-md border border-accent px-4 py-2 text-sm font-semibold text-accent hover:bg-accent hover:text-bg">Book a Discovery Call</a>
+        </Card>
+      ))}
+    </div>
+  </Section>
+</BaseLayout>

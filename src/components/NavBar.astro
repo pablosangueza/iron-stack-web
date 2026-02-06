@@ -1,0 +1,22 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/capabilities', label: 'Capabilities' },
+  { href: '/solutions', label: 'Solutions' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' }
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-bg/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-8">
+    <a href="/" class="text-sm font-semibold uppercase tracking-[0.22em] text-white">IronStack Tactical</a>
+    <nav aria-label="Primary" class="hidden items-center gap-6 md:flex">
+      {links.map((link) => (
+        <a href={link.href} class="text-sm text-steel hover:text-white">{link.label}</a>
+      ))}
+      <a href="/contact" class="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-bg hover:bg-amber-300">Book a Call</a>
+    </nav>
+    <a href="/contact" class="rounded-md border border-accent px-3 py-2 text-xs font-semibold uppercase tracking-wide text-accent md:hidden">Contact</a>
+  </div>
+</header>

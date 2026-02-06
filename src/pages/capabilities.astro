@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+
+const capabilities = [
+  'Custom Web Platforms',
+  'Internal Tools & Dashboards',
+  'Scheduling & Operations Systems',
+  'Training & Certification Portals',
+  'Inventory & Asset Tracking',
+  'Integrations & Automation',
+  'Security, Audit Logging & Role-Based Access'
+];
+
+const stack = ['.NET', 'C#', 'Blazor', 'Node.js', 'PostgreSQL', 'Azure', 'AWS'];
+---
+
+<BaseLayout
+  title="Capabilities | IronStack Tactical Software Solutions"
+  description="Explore IronStack capabilities including tactical web platforms, internal tools, secure integrations, and operations systems."
+>
+  <Section
+    title="Capabilities"
+    subtitle="We design and deliver software systems that support tactical readiness, administrative control, and long-term adaptability."
+  >
+    <div class="grid gap-5 md:grid-cols-2">
+      {capabilities.map((item) => (
+        <Card title={item} body="Built with security, reliability, and operational utility at the core." />
+      ))}
+    </div>
+  </Section>
+
+  <Section title="Preferred Technology Stack" subtitle="Flexible modern stack aligned to mission requirements and existing environments.">
+    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+      {stack.map((item) => (
+        <div class="card py-5 text-center text-sm font-semibold text-white">{item}</div>
+      ))}
+    </div>
+  </Section>
+</BaseLayout>
