@@ -2,7 +2,7 @@ name: Deploy Astro to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -27,13 +27,14 @@ jobs:
           node-version: 20
           cache: npm
 
+      # Repo has no lockfile, so use npm install (not npm ci)
       - name: Install
         run: npm install
 
       - name: Build
         run: npm run build
 
-      # Prevent GitHub Pages from running Jekyll on the output
+      # Prevent GitHub Pages from trying to process output with Jekyll
       - name: Disable Jekyll
         run: touch dist/.nojekyll
 
