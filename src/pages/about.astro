@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+
+const values = ['Security', 'Reliability', 'Accountability', 'Precision'];
+---
+
+<BaseLayout
+  title="About | IronStack Tactical Software Solutions"
+  description="Learn about IronStack's mission-driven approach to building secure, reliable software for tactical and defense-adjacent teams."
+>
+  <Section
+    title="Mission-Driven Software Leadership"
+    subtitle="IronStack Tactical Software Solutions was founded to close the gap between operational reality and software delivery. With a focus on disciplined execution, we partner with teams that need dependable systems under demanding conditions."
+  >
+    <div class="card">
+      <p class="text-sm leading-relaxed">
+        Our founder's background blends technical delivery with field-informed operational collaboration. That perspective drives a practical approach: define the mission clearly, build to measurable outcomes, and harden systems for long-term reliability.
+      </p>
+    </div>
+  </Section>
+
+  <Section title="Core Values">
+    <div class="grid gap-4 md:grid-cols-4">
+      {values.map((value) => (
+        <Card title={value} body="Embedded in every engagement from discovery through support." />
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    title="Why IronStack"
+    subtitle="We combine tactical clarity, strong engineering standards, and transparent delivery management. Our clients choose us when software quality and operational trust are non-negotiable."
+  />
+</BaseLayout>

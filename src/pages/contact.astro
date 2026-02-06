@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+---
+
+<BaseLayout
+  title="Contact | IronStack Tactical Software Solutions"
+  description="Book a call or request a quote from IronStack Tactical Software Solutions for secure tactical software delivery."
+>
+  <Section title="Contact IronStack" subtitle="Tell us about your initiative and we'll follow up with next steps.">
+    <form id="contact-form" class="card max-w-3xl space-y-5" novalidate>
+      <div>
+        <label for="name" class="mb-2 block text-sm font-semibold text-white">Name</label>
+        <input id="name" name="name" required class="w-full rounded-md border border-white/20 bg-bg px-4 py-3 text-sm text-white focus:border-accent focus:outline-none" />
+        <p class="mt-1 hidden text-xs text-red-300" data-error-for="name">Please enter your name.</p>
+      </div>
+
+      <div>
+        <label for="email" class="mb-2 block text-sm font-semibold text-white">Email</label>
+        <input id="email" name="email" type="email" required class="w-full rounded-md border border-white/20 bg-bg px-4 py-3 text-sm text-white focus:border-accent focus:outline-none" />
+        <p class="mt-1 hidden text-xs text-red-300" data-error-for="email">Please enter a valid email address.</p>
+      </div>
+
+      <div>
+        <label for="company" class="mb-2 block text-sm font-semibold text-white">Company</label>
+        <input id="company" name="company" class="w-full rounded-md border border-white/20 bg-bg px-4 py-3 text-sm text-white focus:border-accent focus:outline-none" />
+      </div>
+
+      <div>
+        <label for="interest" class="mb-2 block text-sm font-semibold text-white">Interest</label>
+        <select id="interest" name="interest" required class="w-full rounded-md border border-white/20 bg-bg px-4 py-3 text-sm text-white focus:border-accent focus:outline-none">
+          <option value="">Select one</option>
+          <option value="website">Tactical Website & Lead Platform</option>
+          <option value="operations">Operations & Scheduling System</option>
+          <option value="training">Training / Academy Management Platform</option>
+          <option value="custom">Custom Tactical Software</option>
+        </select>
+        <p class="mt-1 hidden text-xs text-red-300" data-error-for="interest">Please select an interest.</p>
+      </div>
+
+      <div>
+        <label for="message" class="mb-2 block text-sm font-semibold text-white">Message</label>
+        <textarea id="message" name="message" rows="5" required class="w-full rounded-md border border-white/20 bg-bg px-4 py-3 text-sm text-white focus:border-accent focus:outline-none"></textarea>
+        <p class="mt-1 hidden text-xs text-red-300" data-error-for="message">Please provide a short message.</p>
+      </div>
+
+      <button type="submit" class="rounded-md bg-accent px-5 py-3 text-sm font-semibold text-bg hover:bg-amber-300">Submit Inquiry</button>
+      <p class="text-xs">This form is static UI only.</p>
+      <!-- TODO: Integrate form submission endpoint (e.g., serverless function or CRM webhook). -->
+      <!-- TODO: Add spam protection and analytics event tracking for production use. -->
+    </form>
+  </Section>
+</BaseLayout>
+
+<script>
+  const form = document.querySelector('#contact-form');
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const fields = ['name', 'email', 'interest', 'message'];
+    let valid = true;
+
+    fields.forEach((id) => {
+      const input = document.getElementById(id);
+      const error = document.querySelector(`[data-error-for="${id}"]`);
+      if (!(input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement || input instanceof HTMLSelectElement)) {
+        return;
+      }
+
+      const isEmail = id === 'email';
+      const hasValue = input.value.trim().length > 0;
+      const emailValid = !isEmail || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+      const fieldValid = hasValue && emailValid;
+
+      if (!fieldValid) {
+        valid = false;
+        error?.classList.remove('hidden');
+        input.setAttribute('aria-invalid', 'true');
+      } else {
+        error?.classList.add('hidden');
+        input.removeAttribute('aria-invalid');
+      }
+    });
+
+    if (valid) {
+      alert('Thanks for your message. This demo form is static and does not submit yet.');
+    }
+  });
+</script>

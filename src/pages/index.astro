@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+
+const outcomes = [
+  'Workflow automation across training and operations',
+  'Operational efficiency with role-based dashboards',
+  'Security-focused architecture and access control',
+  'Executive reporting with audit-ready visibility'
+];
+
+const howWeWork = ['Assess', 'Design', 'Build', 'Secure', 'Support'];
+---
+
+<BaseLayout
+  title="IronStack Tactical Software Solutions | Secure Software for Tactical Teams"
+  description="Secure, scalable software platforms for tactical training, operations, and defense-adjacent teams."
+>
+  <section class="section-wrap pt-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.22em] text-accent">Mission-ready software delivery</p>
+    <h1 class="mt-4 max-w-3xl text-4xl font-bold text-white md:text-6xl">IronStack Tactical Software Solutions</h1>
+    <p class="mt-6 max-w-3xl text-lg leading-relaxed">
+      Secure, scalable software platforms for tactical training, operations, and defense-adjacent teams.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a href="/contact" class="rounded-md bg-accent px-5 py-3 text-sm font-semibold text-bg hover:bg-amber-300">Book a Call</a>
+      <a href="/contact" class="rounded-md border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:border-accent">Request a Quote</a>
+    </div>
+  </section>
+
+  <Section title="Key Outcomes" subtitle="Software designed for practical field impact and measurable operational gains.">
+    <div class="grid gap-4 md:grid-cols-2">
+      {outcomes.map((outcome) => (
+        <Card title={outcome} />
+      ))}
+    </div>
+  </Section>
+
+  <Section title="How We Work" subtitle="A disciplined build process for security-focused organizations.">
+    <ol class="grid gap-4 md:grid-cols-5">
+      {howWeWork.map((step, index) => (
+        <li class="card text-center">
+          <p class="text-xs uppercase tracking-[0.22em] text-accent">Step {index + 1}</p>
+          <p class="mt-2 text-lg font-semibold text-white">{step}</p>
+        </li>
+      ))}
+    </ol>
+  </Section>
+
+  <Section title="Client Feedback" subtitle="Trusted by organizations that need software to perform under pressure.">
+    <Testimonials />
+  </Section>
+
+  <Section title="Frequently Asked Questions">
+    <FAQ />
+  </Section>
+</BaseLayout>
