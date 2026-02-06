@@ -3,8 +3,8 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://<GITHUB_USER>.github.io',
-  base: '/<REPO_NAME>/',
+  site: 'https://pablosangueza.github.io',
+  base: '/iron-stack-web/',
   output: 'static',
   integrations: [tailwind(), sitemap()]
 });
