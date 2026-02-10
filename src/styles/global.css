@@ -37,3 +37,47 @@ a {
     transform: translateY(0);
   }
 }
+
+.hero-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  min-height: clamp(22rem, 52vw, 36rem);
+  background-image:
+    linear-gradient(115deg, rgba(3, 10, 18, 0.9), rgba(6, 17, 30, 0.72) 45%, rgba(7, 18, 31, 0.84)),
+    url('/images/home/hero-bg.svg');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-banner__content {
+  position: relative;
+  z-index: 1;
+  max-width: 48rem;
+}
+
+.image-mosaic {
+  display: grid;
+  gap: 0.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.image-mosaic__panel {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.image-mosaic__panel--map,
+.image-mosaic__panel--gear {
+  min-height: clamp(14rem, 32vw, 26rem);
+}
+
+@media (min-width: 768px) {
+  .image-mosaic {
+    grid-template-columns: 1fr 1fr;
+  }
+}
