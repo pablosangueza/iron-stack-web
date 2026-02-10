@@ -13,13 +13,21 @@ const outcomes = [
 ];
 
 const howWeWork = ['Assess', 'Design', 'Build', 'Secure', 'Support'];
+const heroBackgroundUrl = `${import.meta.env.BASE_URL}home-hero-bg.svg`;
 ---
 
 <BaseLayout
   title="IronStack Tactical Software Solutions | Secure Software for Tactical Teams"
   description="Secure, scalable software platforms for tactical training, operations, and defense-adjacent teams."
 >
-  <section class="section-wrap pt-20">
+  <section class="section-wrap relative overflow-hidden pt-20">
+    <div
+      class="absolute inset-0 -z-10 rounded-2xl bg-cover bg-center bg-no-repeat opacity-55"
+      style={`background-image: url('${heroBackgroundUrl}');`}
+      aria-hidden="true"
+    ></div>
+    <div class="absolute inset-0 -z-10 rounded-2xl bg-bg/65" aria-hidden="true"></div>
+
     <p class="text-xs font-semibold uppercase tracking-[0.22em] text-accent">Mission-ready software delivery</p>
     <h1 class="mt-4 max-w-3xl text-4xl font-bold text-white md:text-6xl">IronStack Tactical Software Solutions</h1>
     <p class="mt-6 max-w-3xl text-lg leading-relaxed">
